@@ -23,7 +23,7 @@ public class _0_Exam_1 extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp. getWriter();
         out.println("<html><body>");
-        out.println("<h1>!!!<h1>");
+        out.println("<h1>!!!!<h1>");
         out.println("</body><html>");
 
     }
