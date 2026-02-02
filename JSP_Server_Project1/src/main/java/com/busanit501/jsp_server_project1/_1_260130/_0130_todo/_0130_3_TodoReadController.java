@@ -13,6 +13,6 @@ public class _0130_3_TodoReadController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("/todo/read, 글작성 폼 임시화면 get으로 요청 처리함. ");
 
-        req.getRequestDispatcher("/WEB-INF/todo/todoRead.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_todo/todoRead.jsp").forward(req, resp);
     }
 }

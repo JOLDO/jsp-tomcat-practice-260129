@@ -32,4 +32,20 @@ public enum _0202_TodoService {
         }).collect(Collectors.toList());    // mapToObj 닫기 태그, 반복문으로 각각의 todo 객체를 생성해서, 리스트로 만들기.
         return a0202TodoDTOS;
     }
+
+    //Todo 조회
+    public _0202_TodoDTO get(Long tno) {
+        //반환할 임시 객체 생성
+        _0202_TodoDTO dto = new _0202_TodoDTO();
+        //전달 받은 tno 번호로 임시 번호설정
+        dto.setTno(tno);
+        //임시 제목
+        dto.setTitle("샘플 Todo 더미 데이터1");
+        //임시 날짜
+        dto.setDueDate(LocalDate.now());
+        //임시 완료여부
+        dto.setFinished(true);
+
+        return dto;
+    }
 }

@@ -32,7 +32,7 @@ public class _0_Exam_1_MenuInputController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_0130_1_menu/menuInput.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_1_menu/menuInput.jsp");
         dispatcher.forward(req, resp);
     }
 }

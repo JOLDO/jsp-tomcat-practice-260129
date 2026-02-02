@@ -18,7 +18,7 @@ public class _0202_1_TodoListController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("여기 왔다는 건, 클라이언트, url 주소 요청하고, 서버가 응답을 한다. ");
         System.out.println("서버가 일을 하고 있다. 조금 있다 화면을 웹브라우저에게 던져준다. ");
-        System.out.println("/todo/list, get으로 요청 처리함. ");
+        System.out.println("/todo/list_0202, get으로 요청 처리함. ");
 
         List<_0202_TodoDTO> dtoList = _0202_TodoService.INSTANCE.getList();
         req.setAttribute("list", dtoList);

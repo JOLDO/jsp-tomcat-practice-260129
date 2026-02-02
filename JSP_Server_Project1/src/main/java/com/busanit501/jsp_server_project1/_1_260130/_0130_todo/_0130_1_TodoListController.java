@@ -15,6 +15,6 @@ public class _0130_1_TodoListController extends HttpServlet {
         System.out.println("서버가 일을 하고 있다. 조금 있다 화면을 웹브라우저에게 던져준다. ");
         System.out.println("/todo/list, get으로 요청 처리함. ");
 
-        req.getRequestDispatcher("/WEB-INF/_0130_todo/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_todo/list.jsp").forward(req, resp);
     }
 }

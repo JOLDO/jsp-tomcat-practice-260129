@@ -21,7 +21,7 @@ public class InputController extends HttpServlet {
         //1.요청이 왔는지 확인
         System.out.println("InputController의 doGet 메서드에 요청이 도착");
         //2.어느 화면으로 이동할지 결정
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_0130_0_calc/input.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_0_calc/input.jsp");
         //dispatcher는 화면이동
         dispatcher.forward(req, resp);
 

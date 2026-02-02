@@ -26,6 +26,12 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    //외부기능 추가1(jstl: jsp파일에서 반복 혹은 분기를 하기 위한 라이브러리)
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
+
+    //외부기능 추가2(maria db jdbc: 마리아db를 java와 연결하기 위한 라이브러리)
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.5.3'
 }
 
 test {

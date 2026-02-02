@@ -12,7 +12,7 @@ public class _0130_4_TodoUpdateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println();
-        req.getRequestDispatcher("/WEB-INF/todo/todoUpdate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_todo/todoUpdate.jsp").forward(req, resp);
     }
 
     @Override

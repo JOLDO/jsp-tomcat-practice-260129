@@ -13,7 +13,7 @@ public class _0_Exam_1_MakeResultController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(req.getParameter("textInput"));
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_1_menu/makeResultMenu.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_1_menu/makeResultMenu.jsp");
         dispatcher.forward(req, resp);
     }
 }

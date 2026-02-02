@@ -11,7 +11,7 @@ import java.io.IOException;
 public class _0202_2_TodoRegController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("/todo/register, 글작성 폼 임시화면 get으로 요청 처리함. ");
+        System.out.println("/todo/register_0202, 글작성 폼 임시화면 get으로 요청 처리함. ");
 
         req.getRequestDispatcher("/WEB-INF/_2_260202/_0202_todo/todoReg.jsp").forward(req, resp);
     }

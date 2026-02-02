@@ -11,6 +11,6 @@ import java.io.IOException;
 public class _0130_5_TodoDeleteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/todo/todoUpdate.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/_1_260130/_0130_todo/todoUpdate.jsp").forward(req, resp);
     }
 }
