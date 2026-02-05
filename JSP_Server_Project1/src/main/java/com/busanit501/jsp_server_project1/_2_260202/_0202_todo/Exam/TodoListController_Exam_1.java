@@ -19,7 +19,7 @@ public class TodoListController_Exam_1 extends HttpServlet {
         1) _1_TodoListController 작업, 자바
         2) _3_TodoDTO 자바
         3) _4_TodoService 자바
-        4) list.jsp 화면
+        4) todoList.jsp 화면
         */
         List<TodoDTO_Exam_1_2> dtoList = TodoService_Exam_1_2.INSTANCE.getList();
         req.setAttribute("list", dtoList);

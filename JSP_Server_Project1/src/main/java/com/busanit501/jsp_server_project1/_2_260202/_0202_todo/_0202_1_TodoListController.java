@@ -23,6 +23,6 @@ public class _0202_1_TodoListController extends HttpServlet {
         List<_0202_TodoDTO> dtoList = _0202_TodoService.INSTANCE.getList();
         req.setAttribute("list", dtoList);
 
-        req.getRequestDispatcher("/WEB-INF/_2_260202/_0202_todo/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/_2_260202/_0202_todo/todoList.jsp").forward(req, resp);
     }
 }

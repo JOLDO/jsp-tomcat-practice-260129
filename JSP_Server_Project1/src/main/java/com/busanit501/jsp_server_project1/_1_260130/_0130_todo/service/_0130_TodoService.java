@@ -21,13 +21,13 @@ public enum _0130_TodoService {
     //목록조회
     public List<_0130_TodoDTO> getList() {
         //10개의 샘플 등록
-        List<_0130_TodoDTO> a0130TodoDTOS = IntStream.range(0, 10).mapToObj(i -> { //숫자가 0~9만큼 10개가 들어감
+        List<_0130_TodoDTO> _0130_TodoDTOS = IntStream.range(0, 10).mapToObj(i -> { //숫자가 0~9만큼 10개가 들어감
             _0130_TodoDTO dto = new _0130_TodoDTO();
             dto.setTno((long)i);
             dto.setTitle("Todo.." + i);
             dto.setDueDate(LocalDate.now());
             return dto; //intstream은 int인데 반환을 dto로 하기 위해 maptoobj로 함
         }).collect(Collectors.toList());    // mapToObj 닫기 태그, 반복문으로 각각의 todo 객체를 생성해서, 리스트로 만들기.
-        return a0130TodoDTOS;
+        return _0130_TodoDTOS;
     }
 }
