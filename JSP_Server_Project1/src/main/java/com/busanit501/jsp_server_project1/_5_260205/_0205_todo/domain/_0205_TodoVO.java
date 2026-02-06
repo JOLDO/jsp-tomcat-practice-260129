@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Builder
 //@Builder는
 /*
-_0203_TodoVO todo = _0203_TodoVO.builder()
+_0205_TodoVO todo = _0205_TodoVO.builder()
     .tno(0L)
     .title("타이틀")
     .dueDate(LocalDate.now())

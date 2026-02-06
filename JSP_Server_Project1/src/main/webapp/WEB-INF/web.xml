@@ -3,4 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!-- 서블릿 컨텍스트 -> 전역 저장소와 비슷 서블릿(자바), jsp(화면)에서 사용가능 -->
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>admin@example.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>myEmail</param-name>
+        <param-value>bbat@example.com</param-value>
+    </context-param>
 </web-app>

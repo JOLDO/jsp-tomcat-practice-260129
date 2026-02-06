@@ -1,4 +1,4 @@
-package com.busanit501.jsp_server_project1._4_260204._0204_todo.domain;
+package com.busanit501.jsp_server_project1._6_260206._0206_todo.domain;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Builder
 //@Builder는
 /*
-_0205_TodoVO todo = _0205_TodoVO.builder()
+_0206_TodoVO todo = _0206_TodoVO.builder()
     .tno(0L)
     .title("타이틀")
     .dueDate(LocalDate.now())
@@ -20,7 +20,7 @@ _0205_TodoVO todo = _0205_TodoVO.builder()
 @ToString   //toString을 생성하는 것과 같은 효과(메모리 상에 만들어짐)
 @NoArgsConstructor  //기본 생성자 생성
 @AllArgsConstructor //모든 멤버를 매개변수로 가지는 생성자 생성
-public class _0204_TodoVO {
+public class _0206_TodoVO {
     //엔티티클래스 : 데이터베이스에 영향을 주는 클래스(데이터들)
     private Long tno;
     private String title;
