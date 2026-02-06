@@ -18,7 +18,6 @@
     <p>_0205_TodoDTO 모델 클래스의 멤버를 getter로 가져옴</p>
     <div>
         <input type="text" name="tno" value="${dto.tno}" readonly>
-
     </div>
     <div>
         <input type="text" name="title" value="${dto.title}" readonly>
@@ -27,11 +26,10 @@
         <input type="date" name="dueDate" value="${dto.dueDate}" readonly>
     </div>
     <div>
-        <input type="checkbox" name="finished" ${dto.finished  ? "checked" : ""} readonly">
-        ${dto.finished}
+        <input type="checkbox" name="finished" ${dto.finished ? "checked" : ""} disabled>
     </div>
     <div>
-        <a href="/todo/modify?tno=${dto.tno}">수정/삭제</a>
+        <a href="/todo/update_0205?tno=${dto.tno}">수정/삭제</a>
         <a href="/todo/list_0205">목록가기</a>
     </div>
 </body>

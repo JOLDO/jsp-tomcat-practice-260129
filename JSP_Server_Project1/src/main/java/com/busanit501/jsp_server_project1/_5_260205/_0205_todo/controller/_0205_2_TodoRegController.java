@@ -40,15 +40,13 @@ public class _0205_2_TodoRegController extends HttpServlet {
         log.info("todo/register 글쓰기 로직 처리하는 곳입니다.");
         log.info("PRG 패턴");
 
-
-
         try {
             //화면으로 부터 받은 데이터를 dto에 담음
             _0205_TodoDTO todoDTO = _0205_TodoDTO.builder()
                     .title(req.getParameter("title"))
                     .dueDate(LocalDate.parse(req.getParameter("dueDate"), DATEFORMATTER))
                     .build();
-            
+
             //서비스로 전달
             //보낼때 한글설정(없어도 되긴하던데)
             resp.setContentType("text/htnl;charset=UTF-8");

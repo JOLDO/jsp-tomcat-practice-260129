@@ -15,7 +15,7 @@ public class _0203_3_TodoReadController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //현재 작업하는 파일 위치를 서버 콘솔에 출력
-        System.out.println("/todo/read_0203, 글작성 폼 임시화면 get으로 요청 처리함. ");
+        System.out.println("/todo/read_0203, 상세정보 폼 임시화면 get으로 요청 처리함. ");
 
         //임시로 조회할 하나의 더미 데이터 지정
         //웹브라우저에서 주소요청: http://localhost:8080/todo/read_0203?tno=100

@@ -52,9 +52,6 @@ public enum _0205_TodoService {
         return dtoList;
     }
 
-    //등록
-
-
     //Todo 조회
     //화면에서 무엇을 조회할지 알고 있는 상황(tno를 알고 있는 상황)
     public _0205_TodoDTO get(Long tno) throws Exception {
@@ -65,5 +62,24 @@ public enum _0205_TodoService {
         _0205_TodoDTO todoDTO = modelMapper.map(todoVO, _0205_TodoDTO.class);
 
         return todoDTO;
+    }
+
+    //수정하기
+    public void modify(_0205_TodoDTO todoDTO) throws Exception {
+        log.info("todoDTO : " + todoDTO);
+
+        //dto -> vo 변환
+        _0205_TodoVO todoVO = modelMapper.map(todoDTO, _0205_TodoVO.class);
+
+        //dao룰 이용해서 DB 데이터 업데이트
+        dao.updateOne(todoVO);
+    }
+
+    //삭제하기
+    public void remove(Long tno) throws Exception {
+        log.info("삭제할 tno : " + tno);
+
+        //dao룰 이용해서 DB 데이터 삭제
+        dao.deleteOne(tno);
     }
 }
