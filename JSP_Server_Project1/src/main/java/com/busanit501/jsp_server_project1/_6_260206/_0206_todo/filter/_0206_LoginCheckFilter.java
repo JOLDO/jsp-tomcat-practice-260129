@@ -3,7 +3,6 @@ package com.busanit501.jsp_server_project1._6_260206._0206_todo.filter;
 import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +10,7 @@ import java.io.IOException;
 
 //오늘 이해해보기
 @Log4j2
-@WebFilter(urlPatterns = "/todo/*") //주소에 root주소/todo/ 가 있는 모든 주소
+//@WebFilter(urlPatterns = "/todo/*") //주소에 root주소/todo/ 가 있는 모든 주소
 public class _0206_LoginCheckFilter implements Filter {
 
     @Override
