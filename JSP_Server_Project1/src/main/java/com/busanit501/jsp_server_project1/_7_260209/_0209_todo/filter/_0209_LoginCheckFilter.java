@@ -82,7 +82,8 @@ public class _0209_LoginCheckFilter implements Filter {
             _0209_MemberDTO memberDTO = _0209_MemberService.INSTANCE.getByUUID(uuid);
             log.info("필터 검사에서 자동로그인 체크후 uuid로 유저 검색 결과 확인 : " + memberDTO);
             if(memberDTO == null) {
-                throw new Exception("쿠키 값 uuid 값이 유효하지 않아요!!");
+                resp.sendRedirect("/login_0209");
+//                throw new Exception("쿠키 값 uuid 값이 유효하지 않아요!!");
             }
 
             //uuid 일치
