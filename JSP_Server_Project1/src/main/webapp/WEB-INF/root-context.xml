@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    Bean 주입(객체 등록과정)-->
+    <!--    시스템에 객체 넣어두기(서버 시작시, 해당 객체를 사용할수 있게 객체를 켜준다.)-->
+    <!-- 경로를 지정해주면 됨(예전 방식) -->
+<!--    <bean class="com.busanit501.jsp_server_project1.SPRING._0_260212.sample.SampleDAO_0212"></bean> -->
+<!--    <bean class="com.busanit501.jsp_server_project1.SPRING._0_260212.sample.SampleService_0212"></bean>-->
+
+    <!--  폴더까지만 지정해주면 알아서 스캔해서 가져온다.  -->
+    <!--    xmlns:context="http://www.springframework.org/schema/context"이거를 추가해줘야 됨(약어로 하면 마지막이 c인데 context로 바꾸면 됨)-->
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.sample"/>
+</beans>

@@ -45,3 +45,22 @@ bin/
 ### Logs ###
 logs/
 *.log
+
+### Java & Spring ###
+*.class
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+### Help & Backup ###
+HELP.md
+.temp/
+*.tmp
+*.bak
+*.swp
+
+### OS & Security ###
+Thumbs.db
+.env
+.env.local
