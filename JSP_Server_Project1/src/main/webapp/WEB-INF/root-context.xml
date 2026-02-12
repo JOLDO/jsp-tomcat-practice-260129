@@ -17,6 +17,7 @@
 
     <!--  폴더까지만 지정해주면 알아서 스캔해서 가져온다.  -->
     <!--    xmlns:context="http://www.springframework.org/schema/context"이거를 추가해줘야 됨(약어로 하면 마지막이 c인데 context로 바꾸면 됨)-->
+<!--    해당 경로에서 @Component, @Service, @Repository, @Controller 같은 어노테이션이 붙은 클래스들을 찾아서 자동으로 객체(Bean)로 만들어주는 설정-->
     <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.sample"/>
 
 <!--    데이터베이스 관련 설정-->

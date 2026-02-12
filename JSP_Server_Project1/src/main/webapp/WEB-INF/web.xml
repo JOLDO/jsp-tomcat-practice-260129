@@ -23,6 +23,8 @@
 
     <!--    리스너 설정 -> 서버가 리스너를 켜서 어떠한 액션에 대해 감지함-->
     <listener>
+<!--        contextConfigLocation이라는 이름을 찾아서 로드해줌(생명주기가 돌때)-->
+<!--        순서는 서버 열고 -> 이 리스너에서 contextConfigLocation라는 이름의 param을 찾고 그 값을 가져옴 -> 이걸로 spring의 Bean을 알아냄-->
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 </web-app>

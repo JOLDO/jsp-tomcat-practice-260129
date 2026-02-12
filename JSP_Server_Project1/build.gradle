@@ -64,7 +64,7 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-test', version: '5.3.19'
     ////////////////////////////////////
 
-    //외부기능 추가8(spring webmvc: 백엔드??)
+    //외부기능 추가8(spring webmvc: /WEB-INF/web.xml의 ContextLoaderListener를 작동)
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.19'
 
     //외부기능 추가9(spring-jdbc: 커넥션 열기/닫기, statement생성등의 작업, myBatis가 내부적으로 DB와 통신할때 기초)
