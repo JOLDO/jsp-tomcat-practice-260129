@@ -2,7 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://mybatis.org/schema/mybatis-spring
+       http://mybatis.org/schema/mybatis-spring.xsd">
     <!--    Bean 주입(객체 등록과정)-->
     <!--    시스템에 객체 넣어두기(서버 시작시, 해당 객체를 사용할수 있게 객체를 켜준다.)-->
     <!-- 경로를 지정해주면 됨(예전 방식) -->
@@ -12,4 +18,42 @@
     <!--  폴더까지만 지정해주면 알아서 스캔해서 가져온다.  -->
     <!--    xmlns:context="http://www.springframework.org/schema/context"이거를 추가해줘야 됨(약어로 하면 마지막이 c인데 context로 바꾸면 됨)-->
     <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.sample"/>
+
+<!--    데이터베이스 관련 설정-->
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <!-- 속성 옵션 설정해서, 작업.-->
+        <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/webdb"></property>
+        <property name="username" value="webuser"></property>
+        <property name="password" value="webuser"></property>
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="cachePrepStmts">true</prop>
+                <prop key="prepStmtCacheSize">250</prop>
+                <prop key="prepStmtCacheSqlLimit">2048</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- 위에서 설정한 hikariConfig 설정을 , dataSource 인스턴스에 포함하기.-->
+    <!--&lt;!&ndash; 생성자 주입으로 포함하기&ndash;&gt;-->
+    <!-- public class DataSource {-->
+    <!-- private HikariConfig hikariConfig-->
+    <!-- }-->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+          destroy-method="close">
+        <constructor-arg ref="hikariConfig"/>
+    </bean>
+
+    <!-- Mybatis 기능을 , 전역 설정에 등록해서 이용할 준비. -->
+    <!-- resource 폴더는 전체 설정 관련 접근을 위한 폴더이고, 접근시, classpath 접근 가능함,-->
+    <!-- /mappers/** , ** 의미, mappers 폴더 밑에 아무 폴더 추가해도 상관없음.-->
+    <!-- *.xml , 모든 xml 파일을 다 가리킴-->
+    <!-- WEB-INF 하위에서 resources , css,js,image 등, 웹브라우저에게 제공하는 목적으로 사용함.-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>-->
+    </bean>
+
+    <mybatis:scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.mapper"></mybatis:scan>
 </beans>
