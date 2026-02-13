@@ -19,6 +19,7 @@
     <!--    xmlns:context="http://www.springframework.org/schema/context"이거를 추가해줘야 됨(약어로 하면 마지막이 c인데 context로 바꾸면 됨)-->
 <!--    해당 경로에서 @Component, @Service, @Repository, @Controller 같은 어노테이션이 붙은 클래스들을 찾아서 자동으로 객체(Bean)로 만들어주는 설정-->
     <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.sample"/>
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.sample"/>
 
 <!--    데이터베이스 관련 설정-->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -53,8 +54,9 @@
     <!-- WEB-INF 하위에서 resources , css,js,image 등, 웹브라우저에게 제공하는 목적으로 사용함.-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <!-- <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>-->
+         <property name="mapperLocations" value="classpath:/mappers/**/*.xml"></property>
     </bean>
 
     <mybatis:scan base-package="com.busanit501.jsp_server_project1.SPRING._0_260212.mapper"></mybatis:scan>
+    <mybatis:scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.mapper"></mybatis:scan>
 </beans>

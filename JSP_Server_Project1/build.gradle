@@ -57,14 +57,14 @@ dependencies {
     testImplementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '3.0.0-beta2'
     ////////////////////////////////////
 
-    //외부기능 추가7(spring core: 백엔드)
+    //외부기능 추가7(spring core: 객체 생성, 관리, 주입(DI), DB 연결)
     ////////////////////////////////////
     implementation group: 'org.springframework', name: 'spring-core', version: '5.3.19'
     implementation group: 'org.springframework', name: 'spring-context', version: '5.3.19'
     implementation group: 'org.springframework', name: 'spring-test', version: '5.3.19'
     ////////////////////////////////////
 
-    //외부기능 추가8(spring webmvc: /WEB-INF/web.xml의 ContextLoaderListener를 작동)
+    //외부기능 추가8(spring webmvc: /WEB-INF/web.xml의 ContextLoaderListener를 작동, HTTP 요청 받기, 주소 연결, 응답(JSP) 배달)
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.19'
 
     //외부기능 추가9(spring-jdbc: 커넥션 열기/닫기, statement생성등의 작업, myBatis가 내부적으로 DB와 통신할때 기초)
