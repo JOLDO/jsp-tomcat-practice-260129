@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Log4j2
 public class TodoController_0213 {
     @RequestMapping("/list")    //http://localhost:8080/_1_260213/todo/list로 라우팅
-    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/views/_1_260213/todo/list.jsp
+    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/Spring/views/_1_260213/todo/list.jsp
     public void list() {
         log.info("출력 todo list....");
     }
 
 //    @RequestMapping(value="/register", method = RequestMethod.GET)  //http://localhost:8080/_1_260213/todo/register로 라우팅
     @GetMapping("/register")
-    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/views/_1_260213/todo/register.jsp
+    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/Spring/views/_1_260213/todo/register.jsp
     public void getRegister() {
         log.info("출력 todo register..get!");
     }
 
     @PostMapping("/register")
-    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/views/_1_260213/todo/register.jsp
+    //추가로 뷰 리졸버가 연결되어서 todo/list -> /WEB-INF/Spring/views/_1_260213/todo/register.jsp
     //화면에서 컴포넌트의 이름을 dto와 맞추고 dto로 받으면 dto객체로 자동적으로 생성해줌 spring mvc를 사용했기때문에
     //dto에 setter와 noArgsConstructor 어노테이션이 있기 때문에
     public void postRegister(TodoDTO_0213 todoDTO_0213) {

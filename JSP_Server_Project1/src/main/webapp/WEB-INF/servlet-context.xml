@@ -24,24 +24,32 @@
     <!-- http://localhost:8080/resources/test.html , 접근이 가능함. -->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <!--스프링 mvc에서 제공하는 뷰를 어떻게 처리해서 보여줄지 정하는 기능. -->
-    <!-- 뷰파일의 경로 예시: /WEB-INF/views/todo/list.jsp -->
-    <!-- 접두어: /WEB-INF/views/, -->
+    <!-- 뷰파일의 경로 예시: /WEB-INF/Spring/views/todo/list.jsp -->
+    <!-- 접두어: /WEB-INF/Spring/views/, -->
     <!-- 접미어 : .jsp , -->
     <!-- 반복.-->
     <!-- 파일명, 또는 폴더에서 파일명 만 교체해서 사용할 예정.-->
     <!-- todo/list-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">    <!-- 주소 생성방법 -->
-        <property name="prefix" value="/WEB-INF/views/"></property> <!-- 접두어 -->
+        <property name="prefix" value="/WEB-INF/Spring/views/"></property> <!-- 접두어 -->
         <property name="suffix" value=".jsp"></property>    <!-- 접미어 -->
     </bean>
 
-    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.controller"/> <!-- 해당 폴더의 것을 서블릿으로 보겠다는 뜻 -->
+    <!--    필요에따라 주석 해제 후 사용-->
+<!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.controller"/> &lt;!&ndash; 해당 폴더의 것을 서블릿으로 보겠다는 뜻 &ndash;&gt;-->
+<!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._0.controller"/>-->
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller"/>
+    <!--    필요에따라 주석 해제 후 사용-->
 
 <!--    날짜를 변경해주는 기능을 시스템에 등록해서 이용-->
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="formatters">
             <set>
-                <bean class="com.busanit501.jsp_server_project1.SPRING._1_260213.controller.formatter.LocalDateFormatter"/>
+                <!--    필요에따라 주석 해제 후 사용-->
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._1_260213.controller.formatter.LocalDateFormatter_0213"/>-->
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._2_260219._0.controller.formatter.LocalDateFormatter_0219"/>-->
+                <bean class="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller.formatter.LocalDateFormatter_BootStrap_0219"/>
+                <!--    필요에따라 주석 해제 후 사용-->
             </set>
         </property>
     </bean>
