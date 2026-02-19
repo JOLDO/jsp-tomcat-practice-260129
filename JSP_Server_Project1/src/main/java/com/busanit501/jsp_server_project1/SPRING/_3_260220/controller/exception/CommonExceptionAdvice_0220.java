@@ -1,7 +1,8 @@
-package com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller.exception;
+package com.busanit501.jsp_server_project1.SPRING._3_260220.controller.exception;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -9,9 +10,9 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.util.Arrays;
 
-//@ControllerAdvice   //여러 컨트롤러에 걸쳐 범용적으로 적용되는 기능을 모아놓는 클래스
+@ControllerAdvice   //여러 컨트롤러에 걸쳐 범용적으로 적용되는 기능을 모아놓는 클래스
 @Log4j2
-public class CommonExceptionAdvice_BootStrap_0219 {
+public class CommonExceptionAdvice_0220 {
 
     //해결책1
     //예외를 정확히 알면 해당 예외의 담당클래스를 호출해서 처리.
@@ -56,7 +57,7 @@ public class CommonExceptionAdvice_BootStrap_0219 {
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String notFound() {
-        return "_2_260219/custom404";
+        return "_3_260220/custom404";
     }
 
 }
