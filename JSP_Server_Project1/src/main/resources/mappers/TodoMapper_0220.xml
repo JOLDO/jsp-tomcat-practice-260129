@@ -8,4 +8,12 @@
     <select id="getTime" resultType="string">
         select now()
     </select>
+
+    <insert id="insert">
+        insert into tbl_todo (title, dueDate, writer) values (#{title}, #{dueDate}, #{writer})
+    </insert>
+
+    <select id="selectAll" resultType="com.busanit501.jsp_server_project1.SPRING._3_260220.domain.TodoVO_0220">
+        select * from tbl_todo order by tno desc
+    </select>
 </mapper>

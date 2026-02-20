@@ -24,6 +24,7 @@
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.sample"/>-->
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.config"/>-->
     <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._3_260220.config"/>
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._3_260220.service"/>
 <!--    필요에따라 주석 해제 후 사용-->
 
 <!--    데이터베이스 관련 설정-->
