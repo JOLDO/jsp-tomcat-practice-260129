@@ -39,7 +39,8 @@
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._1_260213.controller"/> &lt;!&ndash; 해당 폴더의 것을 서블릿으로 보겠다는 뜻 &ndash;&gt;-->
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._0.controller"/>-->
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller"/>-->
-    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._3_260220.controller"/>
+<!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._3_260220.controller"/>-->
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._4_260223.controller"/>
     <!--    필요에따라 주석 해제 후 사용-->
 
 <!--    날짜를 변경해주는 기능을 시스템에 등록해서 이용-->
@@ -50,7 +51,8 @@
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._1_260213.controller.formatter.LocalDateFormatter_0213"/>-->
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._2_260219._0.controller.formatter.LocalDateFormatter_0219"/>-->
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller.formatter.LocalDateFormatter_BootStrap_0219"/>-->
-                <bean class="com.busanit501.jsp_server_project1.SPRING._3_260220.controller.formatter.LocalDateFormatter_0220"/>
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._3_260220.controller.formatter.LocalDateFormatter_0220"/>-->
+                <bean class="com.busanit501.jsp_server_project1.SPRING._4_260223.controller.formatter.LocalDateFormatter_0223"/>
                 <!--    필요에따라 주석 해제 후 사용-->
             </set>
         </property>
