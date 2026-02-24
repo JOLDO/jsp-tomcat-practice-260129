@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.busanit501.jsp_server_project1.SPRING._5_260224.mapper.TodoMapper_0224">
+
+    <select id="getTime" resultType="string">
+        select now()
+    </select>
+
+    <insert id="insert">
+        insert into tbl_todo (title, dueDate, writer, finished) values (#{title}, #{dueDate}, #{writer}, #{finished})
+    </insert>
+
+    <select id="selectAll" resultType="com.busanit501.jsp_server_project1.SPRING._5_260224.domain.TodoVO_0224">
+        select * from tbl_todo order by tno desc
+    </select>
+
+    <select id="selectOne" resultType="com.busanit501.jsp_server_project1.SPRING._5_260224.domain.TodoVO_0224">
+        select * from tbl_todo where tno = #{tno}
+    </select>
+
+    <delete id="delete">
+        delete from tbl_todo where tno = #{tno}
+    </delete>
+
+    <update id="update">
+        update tbl_todo set title = #{title}, dueDate = #{dueDate}, finished = #{finished} where tno = #{tno}
+    </update>
+
+    <select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._5_260224.domain.TodoVO_0224">
+        select * from tbl_todo order by tno desc limit #{skip}, #{size}
+--         여기서 PageRequestDTO_0224의 getSkip()은 getter로 skip이기 때문에 #{skip}, #{size}는 변수 size
+    </select>
+
+    <select id="getCount" resultType="int">
+        select count(tno) from tbl_todo
+    </select>
+</mapper>

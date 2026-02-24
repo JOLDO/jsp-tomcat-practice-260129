@@ -30,6 +30,7 @@ public class TodoMapperTests_0223 {
         TodoVO_0223 todoVO_0223 = TodoVO_0223.builder()
             .title("뭐!!")
             .dueDate(LocalDate.now())
+            .finished(false)
             .writer("오태흔")
             .build();
         todoMapper_0223.insert(todoVO_0223);

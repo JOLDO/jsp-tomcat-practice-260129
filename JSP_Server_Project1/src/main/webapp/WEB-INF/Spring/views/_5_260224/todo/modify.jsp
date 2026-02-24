@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: joldo
-  Date: 26. 2. 23.
+  Date: 26. 2. 24.
   Time: 오후 2:14
   To change this template use File | Settings | File Templates.
 --%>
@@ -24,7 +24,7 @@
         <div class="col">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/_4_260223/todo/list">Navbar</a>
+                    <a class="navbar-brand" href="/_5_260224/todo/list">Navbar</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/_4_260223/todo/register">글쓰기</a>
+                                <a class="nav-link active" aria-current="page" href="/_5_260224/todo/register">글쓰기</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Features</a>
@@ -58,26 +58,26 @@
                     <div class="card-body">
                         <%--                            부트스트랩 이용중이고, 폼 컨트롤 하나씩 적용해보기.--%>
                         <%--                        상세보기 화면, 디비로 부터 전달 받은 데이터를 읽기 전용으로 화면에 표시하는게 목적. --%>
-                        <form action="_4_260223/todo/modify" method="post" >
+                        <form action="_5_260224/todo/modify" method="post" >
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Tno:</span>
                                 <input class="form-control" type="text" name="tno"
-                                       value=<c:out value="${dto.tno}"></c:out> readonly>
+                                       value='<c:out value="${dto.tno}"></c:out>' readonly>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Title:</span>
                                 <input class="form-control" type="text" name="title"
-                                       value=<c:out value="${dto.title}"></c:out>>
+                                       value='<c:out value="${dto.title}"></c:out>'>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate: </span>
                                 <input class="form-control" type="date" name="dueDate"
-                                       value=<c:out value="${dto.dueDate}"></c:out>>
+                                       value='<c:out value="${dto.dueDate}"></c:out>'>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text"> Writer:  </span>
                                 <input class="form-control" type="text" name="writer"
-                                       value=<c:out value="${dto.writer}"></c:out> readonly>
+                                       value='<c:out value="${dto.writer}"></c:out>' readonly>
                             </div>
                             <div class="form-check mb-3">
                                 <span class="form-check-label">  Finished:  </span>
@@ -91,37 +91,52 @@
                             </div>
                         </form>
                         <script>
+                            const serverValidResult = {}
+                            let errorString = ""
+
+                            <c:if test="${not empty errors}">
+                                <c:forEach items="${errors}" var="error">
+                                    <c:set var="field" value="${error.field}"/>
+                                    <c:set var="message" value="${error.defaultMessage}"/>
+                                    serverValidResult['${field}'] = '${message}'
+                                    errorString += '${field} = ${message}\n'
+                                </c:forEach>
+                                errorString += "값 제대로 적어라"
+                                console.log("유효성 오류가 난 부분들 : ", serverValidResult)
+                                alert(errorString)
+                            </c:if>
+
                             document.querySelector(".btn-secondary").addEventListener("click", function (e) {
-                                    self.location = "/_4_260223/todo/list"
+                                    self.location = "/_5_260224/todo/list"
                                 },false
                             )
 
-                            //수정하기 -> form태그 내부의 액션 주소 : /_4_260223/todo/modify
+                            //수정하기 -> form태그 내부의 액션 주소 : /_5_260224/todo/modify
                             document.querySelector(".btn-primary").addEventListener("click", function (e) {
                                 const formModi = document.querySelector("form");
                                 e.preventDefault();
                                 e.stopPropagation();
 
-                                formModi.action = "/_4_260223/todo/modify";
+                                formModi.action = "/_5_260224/todo/modify";
                                 formModi.method = "post";
                                 formModi.submit();
                                 }, false
                             )
-                            //삭제하기 버튼 클릭시 주소를 변경 /_4_260223/todo/delete, post로
+                            //삭제하기 버튼 클릭시 주소를 변경 /_5_260224/todo/delete, post로
                             document.querySelector(".btn-danger").addEventListener("click", function (e) {
                                     //기존 폼 태그의 전달이 될 주소 변경
                                 //기존 폼 태그의 요소를 선택해서 속성을 변경
                                 const formObj = document.querySelector("form");
 
                                 //기존의 서버 주소로 가는 기능을 막기
-                                e.preventDefault(); ///_4_260223/todo/modify로 못가게 막음
+                                e.preventDefault(); ///_5_260224/todo/modify로 못가게 막음
 
                                 //해당 버튼만 클릭했을때 이벤트가 동작하는걸 원함
                                 //버튼의 부모요소를 클릭해도 똑같이 클릭된 효과를 원치 않음
                                 //버튼만 이벤트 호출 되게 하려고(부모의 배경을 클릭 했을땐 이벤트 호출 안되게 하려고)
                                 e.stopPropagation();
 
-                                formObj.action = "/_4_260223/todo/delete";
+                                formObj.action = "/_5_260224/todo/delete";
                                 formObj.method = "post";
                                 formObj.submit();
                                 },false
