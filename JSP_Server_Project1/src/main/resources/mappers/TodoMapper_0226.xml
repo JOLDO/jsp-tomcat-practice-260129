@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.busanit501.jsp_server_project1.SPRING._7_260226.mapper.TodoMapper_0226">
+
+    <select id="getTime" resultType="string">
+        select now()
+    </select>
+
+    <insert id="insert">
+        insert into tbl_todo (title, dueDate, writer, finished) values (#{title}, #{dueDate}, #{writer}, #{finished})
+    </insert>
+
+    <select id="selectAll" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo order by tno desc
+    </select>
+
+    <select id="selectOne" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo where tno = #{tno}
+    </select>
+
+    <delete id="delete">
+        delete from tbl_todo where tno = #{tno}
+    </delete>
+
+    <update id="update">
+        update tbl_todo set title = #{title}, dueDate = #{dueDate}, finished = #{finished} where tno = #{tno}
+    </update>
+
+<!--    기본 전체 조회1-->
+    <!--<select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo order by tno desc limit #{skip}, #{size}
+&#45;&#45;          여기서 PageRequestDTO_0226의 getSkip()은 getter로 skip이기 때문에 #{skip}, #{size}는 변수 size
+    </select>-->
+
+<!--    검색, 필터, 타입 조건 1-->
+    <!--<select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo
+        <foreach collection="types" item="type">
+            #{type}
+        </foreach>
+        order by tno desc limit #{skip}, #{size}
+    </select>-->
+<!--    select * from tbl_todo ? ? order by tno desc limit ?, ?-->
+
+    <!--    검색, 필터, 타입 조건 2-->
+    <!--<select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo
+        <foreach collection="types" item="type">
+            <if test="type == 't'.toString()">
+                title like concat('%', #{keyword}, '%')
+            </if>
+            <if test="type == 'w'.toString()">
+                writer like concat('%', #{keyword}, '%')
+            </if>
+        </foreach>
+        order by tno desc limit #{skip}, #{size}
+    </select>-->
+<!--    select * from tbl_todo title like concat('%', ?, '%') writer like concat('%', ?, '%') order by tno desc limit ?, ?-->
+
+    <!--    검색, 필터, 타입 조건 3 or추가-->
+    <!--<select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo
+        <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+            <if test="type == 't'.toString()">
+                title like concat('%', #{keyword}, '%')
+            </if>
+            <if test="type == 'w'.toString()">
+                writer like concat('%', #{keyword}, '%')
+            </if>
+        </foreach>
+        order by tno desc limit #{skip}, #{size}
+    </select>-->
+<!--    foreach한번 돌때마다 처음에 ( 끝에 ) 그리고 횟수사이에 or을 추가-->
+<!--    select * from tbl_todo ( title like concat('%', ?, '%') OR writer like concat('%', ?, '%') ) order by tno desc limit ?, ?-->
+
+    <!--    검색, 필터, 타입 조건 4 where추가-->
+    <!--<select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo
+        <where>
+            <if test="types != null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                    <if test="type == 't'.toString()">
+                        title like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test="type == 'w'.toString()">
+                        writer like concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+            order by tno desc limit #{skip}, #{size}
+        </where>
+    </select>-->
+<!--    where태그를 쓰는 이유는 조건이 만족을 안하면 자동적으로 where을 안붙이기 때문에 그냥 where을 if문 앞에 넣었을때는 t, w 둘중에 하나도 조건을 만족을 못했을땐 where이 남아서 문법 오류가 나옴-->
+<!--    select * from tbl_todo WHERE ( title like concat('%', ?, '%') OR writer like concat('%', ?, '%') ) order by tno desc limit ?, ?-->
+
+    <!--    검색, 필터, 타입 조건 5 필터(완료여부, 기한)추가-->
+    <select id="selectList" resultType="com.busanit501.jsp_server_project1.SPRING._7_260226.domain.TodoVO_0226">
+        select * from tbl_todo
+--      sql의 id로 함수처럼 재사용 가능
+        <include refid="search"></include>
+        order by tno desc limit #{skip}, #{size}
+
+    </select>
+
+    <select id="getCount" resultType="int">
+        select count(tno) from tbl_todo
+        <include refid="search"></include>
+    </select>
+
+    <sql id="search">
+        <where>
+            <if test="types != null and types.length > 0">
+                <foreach collection="types" item="type" open="(" close=")" separator=" OR ">
+                    <if test="type == 't'.toString()">
+                        title like concat('%', #{keyword}, '%')
+                    </if>
+                    <if test="type == 'w'.toString()">
+                        writer like concat('%', #{keyword}, '%')
+                    </if>
+                </foreach>
+            </if>
+            <if test="finished">
+                <trim prefix="and">
+                    finished
+                </trim>
+            </if>
+            <if test="from != null and to != null">
+                <trim prefix="and">
+                    dueDate between #{from} and #{to}
+                </trim>
+            </if>
+
+            <!--연습용-->
+            <!--<if test="from != null and to == null">
+                <trim prefix="and">
+                    dueDate &gt;= #{from}
+                </trim>
+            </if>
+
+            <if test="from == null and to != null">
+                <trim prefix="and">
+                    dueDate &lt;= #{to}
+                </trim>
+            </if>-->
+        </where>
+    </sql>
+</mapper>

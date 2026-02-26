@@ -41,7 +41,9 @@
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller"/>-->
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._3_260220.controller"/>-->
 <!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._4_260223.controller"/>-->
-    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._5_260224.controller"/>
+<!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._5_260224.controller"/>-->
+<!--    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._6_260225.controller"/>-->
+    <context:component-scan base-package="com.busanit501.jsp_server_project1.SPRING._7_260226.controller"/>
     <!--    필요에따라 주석 해제 후 사용-->
 
 <!--    날짜를 변경해주는 기능을 시스템에 등록해서 이용-->
@@ -54,8 +56,12 @@
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._2_260219._1_bootStrap.controller.formatter.LocalDateFormatter_BootStrap_0219"/>-->
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._3_260220.controller.formatter.LocalDateFormatter_0220"/>-->
 <!--                <bean class="com.busanit501.jsp_server_project1.SPRING._4_260223.controller.formatter.LocalDateFormatter_0223"/>-->
-                <bean class="com.busanit501.jsp_server_project1.SPRING._5_260224.controller.formatter.LocalDateFormatter_0224"/>
-                <bean class="com.busanit501.jsp_server_project1.SPRING._5_260224.controller.formatter.CheckboxFormatter_0224"/>
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._5_260224.controller.formatter.LocalDateFormatter_0224"/>-->
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._5_260224.controller.formatter.CheckboxFormatter_0224"/>-->
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._6_260225.controller.formatter.LocalDateFormatter_0225"/>-->
+<!--                <bean class="com.busanit501.jsp_server_project1.SPRING._6_260225.controller.formatter.CheckboxFormatter_0225"/>-->
+                <bean class="com.busanit501.jsp_server_project1.SPRING._7_260226.controller.formatter.LocalDateFormatter_0226"/>
+                <bean class="com.busanit501.jsp_server_project1.SPRING._7_260226.controller.formatter.CheckboxFormatter_0226"/>
                 <!--    필요에따라 주석 해제 후 사용-->
             </set>
         </property>
