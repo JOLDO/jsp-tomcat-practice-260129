@@ -61,7 +61,7 @@ public class PageRequestDTO_0226 {
             }
 
             if(keyword != null) {
-                //할글로 넘어오는 경우가 있어서 UTF-8로 인코딩
+                //한글로 넘어오는 경우가 있어서 UTF-8로 인코딩
                 try {
                     builder.append("&keyword=" + URLEncoder.encode(keyword, "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
