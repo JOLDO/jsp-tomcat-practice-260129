@@ -89,9 +89,10 @@ public class TodoController_0226 {
 
         todoService_0226.modify(dto);
 //        redirectAttributes.addAttribute("page", 1);
+        redirectAttributes.addAttribute("tno", dto.getTno());
         redirectAttributes.addAttribute("page",pageRequestDTO_0226.getPage());
         redirectAttributes.addAttribute("size", pageRequestDTO_0226.getSize());
-        return "redirect:/_7_260226/todo/list";
+        return "redirect:/_7_260226/todo/read";
     }
 
     //------------------------------------실습
@@ -110,7 +111,7 @@ public class TodoController_0226 {
         redirectAttributes.addAttribute("size", pageRequestDTO_0226.getSize());
 
 
-        return "redirect:/_7_260226/todo/list";
+        return "redirect:/_7_260226/todo/list?" + pageRequestDTO_0226.getLink();
     }
 
 //    @RequestMapping(value="/register", method = RequestMethod.GET)  //http://localhost:8080/_7_260226/todo/register로 라우팅

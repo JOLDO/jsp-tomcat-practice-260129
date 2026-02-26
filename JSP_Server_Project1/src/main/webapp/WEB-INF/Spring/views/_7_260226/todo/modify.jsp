@@ -132,7 +132,8 @@
                                 //버튼만 이벤트 호출 되게 하려고(부모의 배경을 클릭 했을땐 이벤트 호출 안되게 하려고)
                                 e.stopPropagation();
 
-                                formObj.action = "/_7_260226/todo/delete";
+                                // formObj.action = "/_7_260226/todo/delete";
+                                formObj.action = `/_7_260226/todo/delete?${pageRequestDTO_0226.link}`;
                                 formObj.method = "post";
                                 formObj.submit();
                                 },false

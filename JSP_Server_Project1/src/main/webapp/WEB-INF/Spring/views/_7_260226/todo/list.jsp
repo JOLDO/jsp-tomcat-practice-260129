@@ -50,6 +50,7 @@
                     </div>
                     <div class="card-body">
                         <form action="/_7_260226/todo/list" method="get">
+<%--                            <input type="hidden" name="page" value="${pageRequestDTO_0226.page}">--%>
                             <input type="hidden" name="size" value="${pageRequestDTO_0226.size}">
                             <div class="mb-3">
                                 <input type="checkbox" name="finished"
@@ -176,7 +177,13 @@
                                     return;
                                 }
                                 const num = target.getAttribute("data-num");
-                                self.location = `/_7_260226/todo/list?page=\${num}`;
+
+                                console.log(`페이지\${num}`);
+                                // self.location = `/_7_260226/todo/list?page=\${num}`;
+                                const formObj = document.querySelector("form")
+                                formObj.innerHTML += `<input type='hidden' name='page' value='\${num}'>`;
+                                formObj.submit();
+
                                 // 연습용
                                 <%--let url = "";--%>
                                 <%--<c:forEach items="${pageRequestDTO_0226.types}" var="type">--%>
